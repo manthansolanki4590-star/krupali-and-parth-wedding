@@ -368,6 +368,24 @@ function App() {
       behavior: "smooth",
     });
   };
+  const sharePhotos = async () => {
+  const shareData = {
+    title: "Krupali & Parth — Wedding Memories",
+    text: "Come take a look at Krupali & Parth's wedding memories ❤️",
+    url: window.location.href,
+  };
+
+  if (navigator.share) {
+    try {
+      await navigator.share(shareData);
+    } catch (error) {
+      // User cancelled the share dialog
+    }
+  } else {
+    await navigator.clipboard.writeText(window.location.href);
+    alert("Photo gallery link copied!");
+  }
+};
 
   return (
     <main className="wedding-site">
@@ -391,7 +409,9 @@ function App() {
             <button type="button" onClick={scrollToMemories}>
               Memories
             </button>
-            <button type="button">Share Photos</button>
+            <button type="button" onClick={sharePhotos}>
+                   Share Photos
+            </button>
           </nav>
         </header>
 

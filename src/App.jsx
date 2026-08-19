@@ -85,6 +85,7 @@ function PhotoRow({ section }) {
   const [page, setPage] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const touchStartX = useRef(null);
+  const [zoom, setZoom] = useState(1);
 
 const handleTouchStart = (event) => {
   touchStartX.current = event.touches[0].clientX;
@@ -105,6 +106,17 @@ const handleTouchEnd = (event) => {
   }
 
   touchStartX.current = null;
+};
+const handleWheelZoom = (event) => {
+  event.preventDefault();
+
+  setZoom((current) => {
+    const next = event.deltaY < 0
+      ? current + 0.2
+      : current - 0.2;
+
+    return Math.min(Math.max(next, 1), 3);
+  });
 };
 
   const photosPerPage = 5;
@@ -242,12 +254,17 @@ const handleTouchEnd = (event) => {
             onClick={(event) => event.stopPropagation()}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
+            onWheel={handleWheelZoom}
           >          
-            <img
-              src={section.images[selectedIndex]}
-              alt={`${section.title} memory ${
+           <img
+             src={section.images[selectedIndex]}
+             alt={`${section.title} memory ${
                 selectedIndex + 1
-              }`}
+               }`}
+             style={{
+              transform: `scale(${zoom})`,
+              transition: "transform 0.15s ease"
+                    }}
             />
 
             <a

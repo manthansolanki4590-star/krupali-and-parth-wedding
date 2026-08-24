@@ -13,14 +13,7 @@ import real04 from "./assets/wedding/real-04.JPG";
 
 const heroImages = [hero01, hero02, hero03, hero04];
 
-const weddingPhotos = import.meta.glob(
-  "./assets/wedding/**/*.{jpg,JPG,jpeg,JPEG,png,PNG}",
-  {
-    eager: true,
-    query: "?url",
-    import: "default",
-  }
-);
+import weddingPhotos from "./weddingPhotos.js";
 
 const getSectionPhotos = (folder) => {
   return Object.entries(weddingPhotos)
@@ -269,7 +262,10 @@ const handleWheelZoom = (event) => {
 
             <a
               className="lightbox-download"
-              href={section.images[selectedIndex]}
+             href={section.images[selectedIndex].replace(
+                      "/image/upload/",
+                      "/image/upload/fl_attachment/"
+                    )}
               download
               onClick={(event) => event.stopPropagation()}
             >

@@ -406,12 +406,12 @@ function App() {
           <div className="brand">K &amp; P</div>
 
           <nav>
-            <button type="button" onClick={scrollToMemories}>
+            {/*<button type="button" onClick={scrollToMemories}>
               Memories
             </button>
             <button type="button" onClick={sharePhotos}>
                    Share Photos
-            </button>
+            </button>*/}
           </nav>
         </header>
 

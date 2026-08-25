@@ -59,8 +59,8 @@ const weddingSections = [
     images: getSectionPhotos("haldi"),
   },
   {
-    title: "Pooja",
-    subtitle: "Blessings for the journey ahead",
+    title: "Mehndi",
+    subtitle: "Henna, Laughter and Celebration",
     images: getSectionPhotos("pooja"),
   },
   {
@@ -69,9 +69,9 @@ const weddingSections = [
     images: getSectionPhotos("reception"),
   },
   {
-    title: "Other Memories",
+    title: "Click by Others",
     subtitle: "Everything else worth remembering",
-    images: getSectionPhotos("other"),
+    images: getSectionPhotos("others"),
   },
 ];
 function PhotoRow({ section }) {
@@ -481,7 +481,7 @@ function App() {
         ))}
       </div>
 
-      <section className="shared-memories">
+     {/*  <section className="shared-memories">
         <div className="shared-content">
           <p className="section-eyebrow">FROM OUR GUESTS</p>
 
@@ -520,7 +520,7 @@ function App() {
             All guest submissions are reviewed before appearing on the site.
           </p>
         </div>
-      </section>
+      </section> */}
 
       <footer>
         <div className="footer-monogram">K &amp; P</div>

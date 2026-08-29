@@ -922,3 +922,56 @@ footer span {
     right: 10px;
   }
 }
+/* Wedding Video Memories */
+.video-memories {
+  padding: 80px 5vw 100px;
+}
+
+.video-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.video-content > h2 {
+  margin-bottom: 12px;
+}
+
+.video-content > p:not(.section-eyebrow) {
+  margin-bottom: 42px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 42px 32px;
+}
+
+.video-card {
+  min-width: 0;
+}
+
+.video-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  object-fit: contain;
+  border-radius: 18px;
+  background: #000;
+}
+
+.video-card h3 {
+  margin: 18px 0 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .video-memories {
+    padding: 60px 20px 80px;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}

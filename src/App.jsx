@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+﻿import { useEffect, useRef, useState } from "react";
 import "./App.css";
 
 import hero01 from "./assets/wedding/hero-01.jpeg";
@@ -14,6 +14,7 @@ import real04 from "./assets/wedding/real-04.JPG";
 const heroImages = [hero01, hero02, hero03, hero04];
 
 import weddingPhotos from "./weddingPhotos.js";
+import weddingVideos from "./weddingVideos.js";
 
 const getSectionPhotos = (folder) => {
   return Object.entries(weddingPhotos)
@@ -172,7 +173,7 @@ const handleWheelZoom = (event) => {
         className="see-more-button"
         onClick={previousPage}
       >
-        ← Go back
+            <span>&larr;</span> Go back
       </button>
     )}
 
@@ -182,7 +183,7 @@ const handleWheelZoom = (event) => {
         className="see-more-button"
         onClick={nextPage}
       >
-        See more →
+            See more <span>&rarr;</span>
       </button>
     )}
   </div>
@@ -227,7 +228,7 @@ const handleWheelZoom = (event) => {
             onClick={closePhoto}
             aria-label="Close photo viewer"
           >
-            ×
+            &times;
           </button>
 
           <button
@@ -239,7 +240,7 @@ const handleWheelZoom = (event) => {
             }}
             aria-label="Previous photo"
           >
-            ←
+            &larr;
           </button>
 
           <div
@@ -282,7 +283,7 @@ const handleWheelZoom = (event) => {
             }}
             aria-label="Next photo"
           >
-            →
+            &rarr;
           </button>
         </div>
       )}
@@ -366,8 +367,8 @@ function App() {
   };
   const sharePhotos = async () => {
   const shareData = {
-    title: "Krupali & Parth — Wedding Memories",
-    text: "Come take a look at Krupali & Parth's wedding memories ❤️",
+    title: "Krupali & Parth \u2014 Wedding Memories",
+    text: "Come take a look at Krupali & Parth's wedding memories \u2728",
     url: window.location.href,
   };
 
@@ -422,7 +423,7 @@ function App() {
 
           <div className="hero-divider">
             <span />
-            <b>♥</b>
+            <b>&hearts;</b>
             <span />
           </div>
 
@@ -434,7 +435,7 @@ function App() {
             onClick={scrollToMemories}
           >
             Explore Memories
-            <span>↓</span>
+            <span>&darr;</span>
           </button>
                 <button
         type="button"
@@ -443,7 +444,7 @@ function App() {
         aria-label={isMusicPlaying ? "Pause wedding music" : "Play wedding music"}
       >
         <span className="music-icon">
-          {isMusicPlaying ? "♫" : "♪"}
+          {isMusicPlaying ? "\u266C" : "\u266A"}
         </span>
         <span>
           {isMusicPlaying ? "Music On" : "Play Music"}
@@ -481,6 +482,31 @@ function App() {
         ))}
       </div>
 
+      <section className="video-memories">
+        <div className="video-content">
+          <p className="section-eyebrow">WEDDING FILMS</p>
+
+          <h2>Wedding Video Memories</h2>
+
+          <p>
+            A few moving moments from the celebrations we will always remember.
+          </p>
+
+          <div className="video-grid">
+            {weddingVideos.map((video) => (
+              <article className="video-card" key={video.title}>
+                <video
+                  controls
+                  preload="metadata"
+                  playsInline
+                  src={video.url}
+                />
+                <h3>{video.title}</h3>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
      {/*  <section className="shared-memories">
         <div className="shared-content">
           <p className="section-eyebrow">FROM OUR GUESTS</p>
@@ -494,26 +520,26 @@ function App() {
 
           <div className="guest-collections">
             <button className="guest-card">
-              <span className="guest-icon">✦</span>
+              <span className="guest-icon">\u2726</span>
               <strong>Photos from Kamlesh</strong>
               <small>Coming soon</small>
             </button>
 
             <button className="guest-card">
-              <span className="guest-icon">✦</span>
+              <span className="guest-icon">\u2726</span>
               <strong>Memories from Family</strong>
               <small>Coming soon</small>
             </button>
 
             <button className="guest-card">
-              <span className="guest-icon">✦</span>
+              <span className="guest-icon">\u2726</span>
               <strong>Friends &amp; Guests</strong>
               <small>Coming soon</small>
             </button>
           </div>
 
           <button className="share-button" type="button">
-            📸 Share Your Photos
+            ðŸ“¸ Share Your Photos
           </button>
 
           <p className="approval-note">
@@ -525,10 +551,25 @@ function App() {
       <footer>
         <div className="footer-monogram">K &amp; P</div>
         <p>Made with love for Krupali &amp; Parth</p>
-        <span>♥</span>
+        <span>&hearts;</span>
       </footer>
     </main>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
